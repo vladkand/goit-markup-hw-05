@@ -712,21 +712,21 @@ img {
   opacity: 1;
   background-color: rgba(0, 0, 0, 0.2);
 
-  transition: opasity 250ms var(--function);
+  transition: opasity 2500ms var(--function);
 }
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
 }
 .backdrop.is-hidden .modal {
-  transform: translate(-50%, -50%) scale(2) rotate(360deg);
+  transform: translate(-50%, -50%) scale(2) rotateY(-360deg);
 }
 
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  transform: translate(-50%, -50%) scale(1) rotateY(0deg);
   width: 528px;
   height: 581px;
   background-color: var(--bg-prime-color);
@@ -734,8 +734,7 @@ img {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
 
-  /* transform: translate(-50%, -50%) scale(1); */
-  transition: transform 250ms var(--function), rotate 250ms var(--function);
+  transition: transform 2500ms var(--function), rotate 2500ms var(--function);
 }
 .modal-close {
   position: absolute;
