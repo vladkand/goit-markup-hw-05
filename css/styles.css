@@ -13,6 +13,7 @@
   --header-border-color: #ececec;
   --icon-soc-color: #afb1b8;
   --soc-footer-color: rgba(255, 255, 255, 0.1);
+  --function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 body {
   font-family: 'Roboto', sans-serif;
@@ -73,6 +74,7 @@ img {
   text-align: center;
   letter-spacing: 0.03em;
 }
+
 /* ========== HEADER======= */
 
 /* БЛОК НАВИГАЦИЯ И КОНТАКТЫ */
@@ -90,14 +92,14 @@ img {
 }
 .logo-top,
 .logo-bоttom {
-  text-decoration: none;
   font-family: Raleway;
   font-style: normal;
   font-weight: 700;
   font-size: 26px;
   line-height: 31px;
   letter-spacing: 0.03em;
-  text-decoration: none;
+  /* text-decoration: none; */
+
   /* --- ЦВЕТ ЛОГОТИПА HEADER  --- */
   color: var(--logo-studio-color);
 }
@@ -120,6 +122,7 @@ img {
 }
 .site-nav .link {
   display: block;
+  position: relative;
   padding-top: 32px;
   padding-bottom: 32px;
 
@@ -127,18 +130,35 @@ img {
   font-weight: 500;
   line-height: 1.14;
   letter-spacing: 0.02em;
-  color: var(--text-second-color);
+  color: var(--text-prime-color);
 
-  text-decoration: none;
+  /* text-decoration: none; */
+  transition: color 250ms var(--function);
 }
+
+.site-nav .link.current:after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--text-accent-color);
+}
+
 /* ---= ПОДСВЕТКА ТЕКУЩЕЙ СТРАНИЦЫ =---  */
 .site-nav .link.current {
   color: var(--text-accent-color);
 }
-.site-nav .link:hover,
+
+/* ----------------------------------- */
+
+/* .site-nav .link:hover,
 .site-nav .link:focus {
   color: var(--text-accent-color);
-}
+} */
 
 /* --- КОНТАКТЫ HEADER   --- */
 .contakt-header {
@@ -146,7 +166,7 @@ img {
   margin-left: auto;
 }
 .contakt-header .item + .item {
-  margin-left: 50px;
+  margin-left: 30px;
 }
 
 .contakt-header .item {
@@ -167,6 +187,8 @@ img {
 
   color: var(--text-prime-color);
   fill: currentColor;
+
+  transition: color 250ms var(--function);
 }
 
 .icon-contact {
@@ -174,6 +196,8 @@ img {
   margin-right: 10px;
 }
 
+.site-nav .link:hover,
+.site-nav .link:focus,
 .contakt-header .link:hover,
 .contakt-header .link:focus {
   color: var(--text-accent-color);
@@ -187,7 +211,7 @@ img {
 
 /* ===========  HEADER FIN  ====== */
 
-/* ===  MAIN INDEX  === */
+/* ===  MAIN  === */
 
 /* ---  СТИЛЬ ДЛЯ HERO  --- */
 
@@ -241,11 +265,12 @@ img {
   color: var(--bg-prime-color);
   background-color: var(--text-accent-color);
   cursor: pointer;
+  transition: background-color 250ms var(--function);
 }
 .hero-btn.btn:hover,
 .hero-btn.btn:focus,
 .hero-btn.btn:active {
-  background: #188ce8;
+  background-color: #188ce8;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
 /* ---  HERO-FIN  --- */
@@ -303,7 +328,28 @@ img {
 }
 .job-list {
   display: flex;
+  position: relative;
   justify-content: space-between;
+}
+
+.job-list .item {
+  position: relative;
+}
+
+.job-title {
+  /* display: block; */
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  padding: 27px 82px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.14;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--bg-prime-color);
+  background-color: rgba(47, 48, 58, 0.8);
 }
 
 /* ============ СЕКЦИЯ КОМАНДА =============== */
@@ -363,6 +409,7 @@ img {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+  transition: background-color 250ms var(--function);
   /* background-color: yellow; */
   /* outline: 1px solid teal; */
 }
@@ -372,11 +419,9 @@ img {
 }
 .icon-soc {
   fill: var(--icon-soc-color);
+  transition: fill 250ms var(--function);
 }
-/* .icon-soc:hover,
-.icon-soc:focus .lin {
-  fill: var(--bg-prime-color);
-} */
+
 .link-soc:hover .icon-soc,
 .link-soc:focus .icon-soc {
   fill: var(--bg-prime-color);
@@ -405,10 +450,13 @@ img {
   padding: 16px 32px;
   border: 1px solid var(--icon-soc-color);
   border-radius: 4px;
+
+  transition: border-color 250ms var(--function);
   /* background-color: violet; */
 }
 .icon-client {
   fill: var(--icon-soc-color);
+  transition: fill 250ms var(--function);
 }
 .link-client:hover {
   border-color: var(--text-accent-color);
@@ -448,6 +496,8 @@ img {
   color: var(--text-second-color);
   background-color: var(--bg-second-color);
   cursor: pointer;
+  transition: color 250ms var(--function), box-shadow 250ms var(--function),
+    background-color 250ms var(--function);
 }
 .work-list:last-child {
   margin-right: 0;
@@ -487,17 +537,47 @@ img {
 }
 .work-item .link {
   display: inline-block;
+  transition: box-shadow 250ms var(--function);
   /* background-color: violet; */
 }
-.work-item:hover {
-  /* outline: 1px solid teal; */
+
+/* ======ТЕНЬ НА LINK========== */
+.work-item .link:hover {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
-.example-list .link {
-  text-decoration: none;
+/* OVERLAY-BOX */
+.pictur-box {
+  /* display: flex; */
+  position: relative;
+  overflow: hidden;
 }
+.overlay-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(33, 150, 243, 0.9);
+
+  transform: translateY(100%);
+  transition: 250ms var(--function);
+}
+
+.work-item .link:hover .overlay-box,
+.work-item .link:focus .overlay-box {
+  transform: translateY(0);
+}
+.work-descript {
+  padding: 63px 24px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+  color: var(--bg-prime-color);
+}
+
 /* ---- НИЗ КАРТОЧЕК --- */
 .card-content {
   padding: 20px 24px;
@@ -549,7 +629,7 @@ img {
 /* --- АДРЕСНЫЕ ССЫЛКИ В ФУТЕРЕ  --- */
 .contact-footer .link {
   display: block;
-  text-decoration: none;
+  /* text-decoration: none; */
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -619,3 +699,59 @@ img {
   fill: var(--bg-prime-color);
 }
 /* === FOOTER FIN === */
+
+/* --- MODAL SECTION --- */
+
+.backdrop {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: opasity 250ms var(--function);
+}
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(3) rotateX(-360deg);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1) rotateX(0deg);
+  width: 528px;
+  height: 581px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  transition: transform 250ms var(--function);
+}
+.modal-close {
+  position: absolute;
+
+  top: 8px;
+  right: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 30px;
+  height: 30px;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.modal-close-icon {
+  position: absolute;
+
+  fill: rgba(0, 0, 0, 1);
+}
+/* === MODAL_FIN === */

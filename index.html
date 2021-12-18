@@ -20,6 +20,7 @@
 <body>
     <!-- ==== ШАПКА САЙТА HEADER ===   -->
 
+
     <header class="header">
         <div class="container prime-nav">
 
@@ -27,16 +28,17 @@
 
             <nav class="general-nav">
                 <!-- ЛОГОТИП СТУДИИ -->
-                <a href="./index.html" class="logo-top"><span class="accent">Web</span><span
+                <a href="./index.html" class="logo-top link"><span class="accent">Web</span><span
                         class="studio">Studio</span></a>
                 <!-- ПЕРВЫЙ СПИСОК -->
                 <ul class="list site-nav">
-                    <li class="item"><a href="./index.html" class="link current">Студия</a></li>
+                    <li class="item"><a href="./index.html" class="link current">Cтудия</a></li>
                     <li class="item"><a href="./portfolio.html" class="link portfolio">Портфолио</a></li>
                     <li class="item"><a href="#" class="link contact">Контакты</a></li>
                 </ul>
             </nav>
             <!-- ... КОНТАКТЫ ВТОРОЙ СПИСОК В ШАПКЕ ... -->
+
             <ul class="list contakt-header">
                 <li class="item">
                     <a href="mailto:info@devstudio.com" class="link link-mail" rel=""><svg class="icon-contact"
@@ -54,12 +56,14 @@
     </header>
 
     <!-- ==== MAIN СТРАНИЦЫ ==== -->
+
     <main>
         <!-- HERO -->
+
         <section class="section hero-img">
             <div class="container hero">
                 <h1 class="hero-title">Эффективные решения<br> для вашего бизнеса</h1>
-                <button type="button" class="hero-btn btn">Заказать услугу</button>
+                <button type="button" class="hero-btn btn" data-modal-open>Заказать услугу</button>
             </div>
         </section>
 
@@ -118,23 +122,29 @@
         </section>
 
         <!-- ==== СЕКЦИЯ ЧЕМ МЫ ЗАНИМАЕМСЯ ==== -->
+
         <section class="section job">
             <div class="container">
                 <h2 class="title section-title">Чем мы занимаемся</h2>
                 <ul class="list job-list">
                     <li class="item">
-                        <img src="./images/box1.jpg" width="370" alt="руки с клавиатурой" />
+                        <img src="./images/box1.jpg" width="370" alt="руки с клавиатурой">
+                        <p class="job-title">Десктопные приложения</p>
                     </li>
                     <li class="item">
-                        <img src="./images/box2.jpg" width="370" alt=" рука с мобильным" />
+                        <img src="./images/box2.jpg" width="370" alt=" рука с мобильным">
+                        <p class="job-title">Мобильные приложения</p>
                     </li>
                     <li class="item">
-                        <img src="./images/box3.jpg" width="370" alt=" рука с планшетом" />
+                        <img src="./images/box3.jpg" width="370" alt=" рука с планшетом">
+                        <p class="job-title">Дизайнерские решения</p>
                     </li>
                 </ul>
             </div>
         </section>
+
         <!-- ====  СЕКЦИЯ КОМАНДА  ==== -->
+
         <section class="section team">
             <div class="container">
                 <h2 class="title section-title">Наша команда</h2>
@@ -335,14 +345,16 @@
             </div>
 
         </section>
+
+
     </main>
 
     <!-- ==== FOOTER ==== -->
 
     <footer class="section footer">
         <div class="container footer-container">
-            <div class="address-logo"><a href="./index.html" class="logo-bоttom"><span class="accent">Web</span><span
-                        class="logo-footer">Studio</span></a>
+            <div class="address-logo"><a href="./index.html" class="logo-bоttom link"><span
+                        class="accent">Web</span><span class="logo-footer">Studio</span></a>
                 <address class="address">
                     <ul class="list contact-footer">
                         <li class="item">
@@ -391,7 +403,18 @@
 
     </footer>
 
+    <!-- === MODAL === -->
 
+    <div class="backdrop is-hidden" data-modal>
+        <div class="modal">
+            <button class="modal-close" data-modal-close><svg class="modal-close-icon" width="11" height="11">
+                    <use href="./images/symbol.svg#close"></use>
+                </svg></button>
+        </div>
+    </div>
+    <!-- === ПОДКЛЮЧЕНИЕ СКРИПТА === -->
+
+    <script src="./js/modal.js"></script>
 </body>
 
 </html>
